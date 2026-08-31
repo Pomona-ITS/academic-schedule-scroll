@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Important Dates</title>
+  <style>
+    /* === Base === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0d1b2a;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #e8f0fe;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* === Static Header === */
+    .page-header {
+      width: 100%;
+      text-align: center;
+      padding: 28px 20px 18px;
+      background: linear-gradient(180deg, #0d1b2a 70%, transparent 100%);
+      position: relative;
+      z-index: 10;
+    }
+
+    .page-header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4da6ff;
+      text-shadow: 0 0 18px rgba(77, 166, 255, 0.5);
+    }
+
+    /* Glowing divider line — the signature design move */
+    .glow-line {
+      width: 60%;
+      height: 2px;
+      margin: 10px auto 0;
+      background: linear-gradient(90deg, transparent, #4da6ff, transparent);
+      box-shadow: 0 0 10px #4da6ff, 0 0 20px rgba(77,166,255,0.4);
+    }
+
+    /* === Scroll Window === */
+    .scroll-window {
+      width: 100%;
+      max-width: 700px;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      /* Fade edges for a clean entry/exit */
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 8%,
+        black 88%,
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 8%,
+        black 88%,
+        transparent 100%
+      );
+    }
+
+    /* === Scrolling Track === */
+    /* The track contains the content TWICE so the loop is seamless */
+    .scroll-track {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: scrollUp 40s linear infinite;
+    }
+
+    /* Pause on hover — useful if someone wants to read */
+    .scroll-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollUp {
+      0%   { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    /* === Content Block (used twice for seamless loop) === */
+    .content-block {
+      width: 100%;
+      padding: 20px 40px 60px;
+    }
+
+    /* Section heading: "Upcoming Deadlines" / "More Dates To Know" */
+    .section-title {
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #4da6ff;
+      text-shadow: 0 0 10px rgba(77,166,255,0.4);
+      margin-top: 40px;
+      margin-bottom: 24px;
+      text-align: center;
+      border-bottom: 1px solid rgba(77,166,255,0.25);
+      padding-bottom: 10px;
+    }
+
+    /* Individual date entry */
+    .date-entry {
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .date-label {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+    }
+
+    .date-desc {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #a8c8f0;
+      margin-top: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Subtle separator between entries */
+    .entry-sep {
+      width: 30%;
+      height: 1px;
+      background: rgba(77,166,255,0.15);
+      margin: 0 auto 28px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Static header stays fixed at top -->
+  <header class="page-header">
+    <h1>Academic Calendar</h1>
+    <div class="glow-line"></div>
+  </header>
+
+  <!-- Scrolling area -->
+  <div class="scroll-window">
+    <div class="scroll-track">
+
+      <!-- ===== COPY 1 ===== -->
+      <div class="content-block">
+
+        <div class="section-title">Upcoming Deadlines</div>
+
+        <div class="date-entry">
+          <div class="date-label">Sept. 14</div>
+          <div class="date-desc">Last Day to Add a Course</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Oct. 22</div>
+          <div class="date-desc">Last Day to Drop a Course</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Nov. 20</div>
+          <div class="date-desc">Last Day to Choose CR/NC Grading</div>
+        </div>
+
+        <div class="section-title">More Dates To Know</div>
+
+        <div class="date-entry">
+          <div class="date-label">Sept. 7</div>
+          <div class="date-desc">Labor Day</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Oct. 19–20</div>
+          <div class="date-desc">Fall Recess</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Nov. 25–27</div>
+          <div class="date-desc">Thanksgiving Recess</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Dec. 9</div>
+          <div class="date-desc">Last Day of Classes</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Dec. 10–11</div>
+          <div class="date-desc">Reading Days</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Dec. 14–18</div>
+          <div class="date-desc">Final Exams</div>
+        </div>
+
+      </div><!-- /content-block copy 1 -->
+
+      <!-- ===== COPY 2 (identical — enables seamless loop) ===== -->
+      <div class="content-block">
+
+        <div class="section-title">Upcoming Deadlines</div>
+
+        <div class="date-entry">
+          <div class="date-label">Sept. 14</div>
+          <div class="date-desc">Last Day to Add a Course</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Oct. 22</div>
+          <div class="date-desc">Last Day to Drop a Course</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Nov. 20</div>
+          <div class="date-desc">Last Day to Choose CR/NC Grading</div>
+        </div>
+
+        <div class="section-title">More Dates To Know</div>
+
+        <div class="date-entry">
+          <div class="date-label">Sept. 7</div>
+          <div class="date-desc">Labor Day</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Oct. 19–20</div>
+          <div class="date-desc">Fall Recess</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Nov. 25–27</div>
+          <div class="date-desc">Thanksgiving Recess</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Dec. 9</div>
+          <div class="date-desc">Last Day of Classes</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Dec. 10–11</div>
+          <div class="date-desc">Reading Days</div>
+        </div>
+        <div class="entry-sep"></div>
+
+        <div class="date-entry">
+          <div class="date-label">Dec. 14–18</div>
+          <div class="date-desc">Final Exams</div>
+        </div>
+
+      </div><!-- /content-block copy 2 -->
+
+    </div><!-- /scroll-track -->
+  </div><!-- /scroll-window -->
+
+</body>
+</html>
